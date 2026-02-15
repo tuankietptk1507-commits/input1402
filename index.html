@@ -149,7 +149,7 @@
     let emails = [];
 
     tagInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
 
             const value = tagInput.value.trim();
