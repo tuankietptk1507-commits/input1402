@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color:#d776f423 ;
+    background-color: #d776f423;
     padding: 40px;
 }
 
@@ -17,12 +17,14 @@ body {
     margin: auto;
     gap: 40px;
 }
-.form-item{
-     max-width: 480px;
+
+.form-item {
+    max-width: 480px;
     width: 100%;
     position: relative;
 }
-.form-item .box{
+
+.form-item .box {
     height: 25px;
     width: 5px;
     position: absolute;
@@ -30,6 +32,7 @@ body {
     background: linear-gradient(120deg, #c690e9b9, #7a0889d6);
     border-radius: 4px;
 }
+
 .form-item p {
     font-size: 20px;
     font-weight: 600;
@@ -74,23 +77,26 @@ body {
     width: auto;
     cursor: pointer;
     height: 30px;
-    border-right: 1.5px solid #d6d6d6 ;
+    border-right: 1.5px solid #d6d6d6;
 }
-.form-control .img-box{
+
+.form-control .img-box {
     position: relative;
     width: 30px;
     height: 18px;
-    .img-1{
-        position: absolute;
-        z-index: 1;
-
-    }
-    .img-2{
-        position: absolute;
-        z-index: 0;
-        left: 10px;
-    }
 }
+
+.form-control .img-box .img-1 {
+    position: absolute;
+    z-index: 1;
+}
+
+.form-control .img-box .img-2 {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+}
+
 .form-control img {
     width: 18px;
 }
@@ -99,7 +105,7 @@ textarea {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
-     border: 1px solid #cd96fa;
+    border: 1px solid #cd96fa;
     resize: none;
     font-size: 14px;
 
@@ -110,13 +116,16 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(191, 90, 216, 0.15);
     outline: none;
 }
+
 .copy-btn:hover {
     transform: scale(1.1);
     opacity: 0.7;
 }
-.form-control .eye-open{
+
+.form-control .eye-open {
     display: none;
 }
+
 .multi-control {
     flex-wrap: wrap;
     gap: 6px;
@@ -157,4 +166,15 @@ textarea:focus {
 .tag-input {
     flex: 1;
     min-width: 120px;
+}
+
+.form-control input[type="password"]::-ms-reveal {
+    display: none;
+}
+
+.form-item .error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    text-align: right;
 }
