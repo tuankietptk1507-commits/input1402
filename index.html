@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form UI</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Text</p>
+            <label>Full name</label>
+            <div class="form-control">
+                <img src="./img/user-line.svg" alt="">
+                <input type="text" placeholder="e.g. John Doe">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Calendar</p>
+            <label>Start date</label>
+            <div class="form-control">
+                <input type="date">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Phone number</p>
+            <label>Phone number</label>
+            <div class="form-control">
+                <select>
+                    <option>+1</option>
+                    <option>+84</option>
+                </select>
+                <input type="tel" placeholder="111-222-3333">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Multi-select</p>
+            <label>User</label>
+            <div class="form-control multi-control">
+                <div class="tags"></div>
+                <input type="text" placeholder="Add user..." class="tag-input">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Credit card</p>
+            <label>Card number</label>
+            <div class="form-control">
+                <div class="img-box">
+                    <img class="img-1" src="./img/circle-fill.svg" alt="">
+                    <img class="img-2" src="./img/circle-fill (1).svg" alt="">
+                </div>
+
+                <input type="text" placeholder="1111-2222-3333-4444">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Link</p>
+            <label>Website</label>
+            <div class="form-control">
+                <input type="url" placeholder="https://example.com">
+                <img src="./img/file-copy-line.svg" alt="" class="copy-btn">
+
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Currency</p>
+            <label>Amount</label>
+            <div class="form-control">
+                <select>
+                    <option>USD</option>
+                    <option>VND</option>
+                </select>
+                <input type="number" placeholder="$ 0.00">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Password</p>
+            <label>Password</label>
+            <div class="form-control password-control">
+                <img src="./img/lock-2-line.svg" alt="">
+                <input type="password" placeholder="Enter password">
+                <img src="./img/eye-line.svg" alt="" class="eye-open">
+                <img src="./img/eye-close-line.svg" alt="" class="eye-close">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Search</p>
+            <div class="form-control">
+                <img src="./img/search-line.svg" alt="">
+                <input type="search" placeholder="Search for anything...">
+            </div>
+        </div>
+
+        <div class="form-item">
+            <div class="box"></div>
+            <p>Text area</p>
+            <label>Label</label>
+            <textarea rows="4" placeholder="This is a long story..."></textarea>
+        </div>
+
+    </div>
+</body>
+<script>
+    const copyBtn = document.querySelector(".copy-btn");
+    const linkInput = copyBtn.closest(".form-control").querySelector("input");
+    copyBtn.addEventListener("click", () => {
+        if (!linkInput.value) return;
+        navigator.clipboard.writeText(linkInput.value);
+        copyBtn.style.opacity = "0.4";
+        setTimeout(() => {
+            copyBtn.style.opacity = "1";
+        }, 300);
+    });
+    const passwordControl = document.querySelector(".password-control");
+    const passwordInput = passwordControl.querySelector("input");
+    const eyeOpen = passwordControl.querySelector(".eye-open");
+    const eyeClose = passwordControl.querySelector(".eye-close");
+
+    eyeClose.addEventListener("click", () => {
+        passwordInput.type = "text";
+        eyeClose.style.display = "none";
+        eyeOpen.style.display = "block";
+    });
+
+    eyeOpen.addEventListener("click", () => {
+        passwordInput.type = "password";
+        eyeOpen.style.display = "none";
+        eyeClose.style.display = "block";
+    });
+    const tagInput = document.querySelector(".tag-input");
+    const tagsContainer = document.querySelector(".tags");
+
+    let emails = [];
+
+    tagInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+
+            const value = tagInput.value.trim();
+
+            if (!value) return;
+            if (emails.includes(value)) {
+                tagInput.value = "";
+                return;
+            }
+
+            emails.push(value);
+
+            const tag = document.createElement("div");
+            tag.classList.add("tag");
+
+            tag.innerHTML = `
+    <span>${value}</span>
+    <span class="remove">&times;</span>
+`;
+
+            tagsContainer.appendChild(tag);
+
+            tag.querySelector(".remove").addEventListener("click", () => {
+                emails = emails.filter(email => email !== value);
+                tag.remove();
+            });
+
+            tagInput.value = "";
+        }
+    });
+</script>
+
+</html>

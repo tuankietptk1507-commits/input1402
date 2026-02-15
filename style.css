@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background-color:#d776f423 ;
+    padding: 40px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+    gap: 40px;
+}
+.form-item{
+     max-width: 480px;
+    width: 100%;
+    position: relative;
+}
+.form-item .box{
+    height: 25px;
+    width: 5px;
+    position: absolute;
+    top: 0;
+    background: linear-gradient(120deg, #c690e9b9, #7a0889d6);
+    border-radius: 4px;
+}
+.form-item p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #be38e7;
+    margin-bottom: 10px;
+    padding-left: 15px;
+}
+
+.form-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #cd96fa;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.form-control:focus-within {
+    border-color: #7d18a8;
+    box-shadow: 0 0 0 3px rgba(191, 90, 216, 0.15);
+}
+
+.form-control input,
+.form-control select {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+
+}
+
+.form-control select {
+    width: auto;
+    cursor: pointer;
+    height: 30px;
+    border-right: 1.5px solid #d6d6d6 ;
+}
+.form-control .img-box{
+    position: relative;
+    width: 30px;
+    height: 18px;
+    .img-1{
+        position: absolute;
+        z-index: 1;
+
+    }
+    .img-2{
+        position: absolute;
+        z-index: 0;
+        left: 10px;
+    }
+}
+.form-control img {
+    width: 18px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+     border: 1px solid #cd96fa;
+    resize: none;
+    font-size: 14px;
+
+}
+
+textarea:focus {
+    border-color: #7d18a8;
+    box-shadow: 0 0 0 3px rgba(191, 90, 216, 0.15);
+    outline: none;
+}
+.copy-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+.form-control .eye-open{
+    display: none;
+}
+.multi-control {
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f3f3f3;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.tag img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.tag .remove {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.6;
+}
+
+.tag .remove:hover {
+    opacity: 1;
+}
+
+.tag-input {
+    flex: 1;
+    min-width: 120px;
+}
